@@ -1,0 +1,269 @@
+パッケージのリストをサーバーから入手する
+apt-get update
+システムにインストールされているパッケージをアップデートする
+apt-get upgrade
+
+apt-get install 
+apt-get update
+apt-get upgrade
+
+
+sudo ufw disable
+sudo ufw default ALLOW
+
+sudo apt-get -y install libc6-i386
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get -y install libc6:i386
+sudo apt-get -y install lsb-core
+sudo apt-get install lsb-core
+
+■名前
+ens160 ---> eth0 へ
+
+https://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
+
+
+
+■アクセス権限
+sudo chmod -R 777 /home/toyo/
+
+sudo ./lmutil lmhostid -ptype vm
+toyo@ubuntu16-64:~/flexlm_11.14$ sudo ./lmutil lmhostid -ptype vm
+lmutil - Copyright (c) 1989-2016 Flexera Software LLC. All Rights Reserved.
+The FlexNet host ID of this machine is "VM_UUID=564D4682-2CF1-68F0-1174-68801F0BE477"
+toyo@ubuntu16-64:~/flexlm_11.14$
+
+
+
+■
+sudo apt-get install lib32gcc1
+
+
+sudo chmod -R 777 /opt/spirent/apt-flexlm-server/licenses/
+
+
+■サービス
+開始
+sudo systemctl start spirent-apt-flexlm-server.service
+
+service spirent-apt-flexlm-server.service start
+
+sudo systemctl start spirent-apt-flexlm-server.service
+
+停止
+sudo systemctl stop spirent-apt-flexlm-server.service
+
+リスタート
+sudo systemctl restart spirent-apt-flexlm-server.service
+
+
+sudo systemctl status spirent-apt-flexlm-server.service
+
+
+■proxyサーバ
+sudo systemctl start spirent-apt-flexlm-proxy.service
+
+
+
+uuid.bios = "56 4d e0 58 0f 48 20 90-39 d4 21 52 f2 15 db e7"
+uuid.location = "56 4d e0 58 0f 48 20 90-39 d4 21 52 f2 15 db e7"
+vc.uuid = "52 5c 39 63 45 65 9e c5-11 9d 3a 87 dc 74 19 d9"
+
+
+
+
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Mon Apr  9 11:09:23 JST 2018
+
+  System load: 0.0                Memory usage: 5%   Processes:       112
+  Usage of /:  11.1% of 14.38GB   Swap usage:   0%   Users logged in: 0
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+143 packages can be updated.
+105 updates are security updates.
+
+New release '16.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Apr  9 11:01:21 2018 from 172.22.100.1
+toyo@ubuntu1464:~$ cd /home/toyo/flexlm_11.14
+toyo@ubuntu1464:~/flexlm_11.14$ ls
+lmgrd      lmgrd.sha1  lmutil.md5   spirentd      spirentd.sha1
+lmgrd.md5  lmutil      lmutil.sha1  spirentd.md5
+toyo@ubuntu1464:~/flexlm_11.14$ sudo lmutil lmhostid -ptype vm
+[sudo] password for toyo:
+sudo: lmutil: command not found
+toyo@ubuntu1464:~/flexlm_11.14$ ls -l
+合計 3428
+-rwxrwxrwt 1 toyo toyo 1221728  8月  2  2017 lmgrd
+-rwxrwxrwt 1 toyo toyo      32  8月  2  2017 lmgrd.md5
+-rwsrwsrwt 1 toyo toyo      40  8月  2  2017 lmgrd.sha1
+-rwxrwxrwt 1 toyo toyo 1065316  8月  2  2017 lmutil
+-rwxrwxrwt 1 toyo toyo      32  8月  2  2017 lmutil.md5
+-rwxrwxrwt 1 toyo toyo      40  8月  2  2017 lmutil.sha1
+-rwxrwxrwt 1 toyo toyo 1190596  8月  2  2017 spirentd
+-rwxrwxrwt 1 toyo toyo      32  8月  2  2017 spirentd.md5
+-rwxrwxrwt 1 toyo toyo      40  8月  2  2017 spirentd.sha1
+toyo@ubuntu1464:~/flexlm_11.14$ sudo ./lmutil lmhostid -ptype vm
+lmutil - Copyright (c) 1989-2016 Flexera Software LLC. All Rights Reserved.
+The FlexNet host ID of this machine is "VM_UUID=564DE058-0F48-2090-39D4-2152F215DBE7"
+toyo@ubuntu1464:~/flexlm_11.14$
+
+
+
+(1)ファイルの保存先
+　/home/toyo/flexlm_11.14
+
+(2)ステータス
+>./lmutil lmstat -a
+
+
+(3)ライセンスファイルのコピー
+　/home/toyo/flexlm_11.14
+
+(3)ライセンスサーバの軌道
+　sudo ./lmgrd -c . -l LogFile.log
+
+(4)vi LogFile.log
+
+(5)ステータス
+　/lmutil lmstat -a
+
+
+(6)終了
+　sudo ./lmutil lmdown
+
+
+=================================
+サービス
+
+(1)apt-get -f install
+
+(2)sudo dpkg -i spirent-apt-flexlm-server_7.0.1.deb
+
+toyo@ubuntu1464:~/flexlm_11.14$ sudo dpkg -i spirent-apt-flexlm-server_7.0.1.deb
+(データベースを読み込んでいます ... 現在 66569 個のファイルとディレクトリがインストールされています。)
+spirent-apt-flexlm-server_7.0.1.deb を展開する準備をしています ...
+spirent-apt-flexlm-server (7.0.1-10) で (7.0.1-10 に) 上書き展開しています ...
+postrm called with: upgrade
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postrm: 8: /var/lib/dpkg/info/spirent-apt-flexlm-server.postrm: systemctl: not found
+dpkg: 警告: サブプロセス 古い post-removal スクリプト はエラー終了ステータス 127 を返しました
+dpkg: 代わりに新規パッケージからスクリプトを実行してみます ...
+postrm called with: failed-upgrade
+dpkg: ... OK のようです
+spirent-apt-flexlm-server (7.0.1-10) を設定しています ...
+postinst called with: configure
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 8: /var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: systemctl: not found
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 9: /var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: systemctl: not found
+WARNING: License files should be installed in /opt/spirent/apt-flexlm-server/licenses/*.lic
+
+INFO: FlexLM Host ID Details (MAC Based):
+
+lmutil - Copyright (c) 1989-2016 Flexera Software LLC. All Rights Reserved.
+The FlexNet host ID of this machine is "000c2915dbe7"
+
+
+INFO: FlexLM Host ID Details (VM Based) [ignore if not VM]:
+
+lmutil - Copyright (c) 1989-2016 Flexera Software LLC. All Rights Reserved.
+The FlexNet host ID of this machine is "VM_UUID=564DE058-0F48-2090-39D4-2152F215DBE7"
+
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 11: /var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: systemctl: not found
+toyo@ubuntu1464:~/flexlm_11.14$
+
+(3)
+
+
+
+Ｕｂｕｎｔｕ14の対応
+
+sudo apt-get install uwsgi
+
+
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 11: 
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: systemctl: not found
+sudo service <サービス> start
+sudo service <サービス> start
+
+
+update-rc.d <service> enable
+
+
+以下の場所にライセンスファイルをコピーした
+/var/lib/dpkg/info/
+
+
+
+
+toyo@ubuntu1464:~/flexlm_11.14$ sudo dpkg -i spirent-apt-flexlm-server_7.0.1.deb
+[sudo] password for toyo:
+(データベースを読み込んでいます ... 現在 66882 個のファイルとディレクトリがイン                                                                                                                      ストールされています。)
+spirent-apt-flexlm-server_7.0.1.deb を展開する準備をしています ...
+spirent-apt-flexlm-server (7.0.1-10) で (7.0.1-10 に) 上書き展開しています ...
+postrm called with: upgrade
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postrm: 8: /var/lib/dpkg/info/spire                                                                                                                     nt-apt-flexlm-server.postrm: systemctl: not found
+dpkg: 警告: サブプロセス 古い post-removal スクリプト はエラー終了ステータス 127                                                                                                                      を返しました
+dpkg: 代わりに新規パッケージからスクリプトを実行してみます ...
+postrm called with: failed-upgrade
+dpkg: ... OK のようです
+spirent-apt-flexlm-server (7.0.1-10) を設定しています ...
+postinst called with: configure
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 8: /var/lib/dpkg/info/spi                                                                                                                     rent-apt-flexlm-server.postinst: systemctl: not found
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 9: /var/lib/dpkg/info/spi                                                                                                                     rent-apt-flexlm-server.postinst: systemctl: not found
+License files found
+
+INFO: FlexLM Host ID Details (MAC Based):
+
+lmutil - Copyright (c) 1989-2016 Flexera Software LLC. All Rights Reserved.
+The FlexNet host ID of this machine is "000c2915dbe7"
+
+
+INFO: FlexLM Host ID Details (VM Based) [ignore if not VM]:
+
+lmutil - Copyright (c) 1989-2016 Flexera Software LLC. All Rights Reserved.
+The FlexNet host ID of this machine is "VM_UUID=564DE058-0F48-2090-39D4-2152F215                                                                                                                     DBE7"
+
+/var/lib/dpkg/info/spirent-apt-flexlm-server.postinst: 11: /var/lib/dpkg/info/sp                                                                                                                     irent-apt-flexlm-server.postinst: systemctl: not found
+toyo@ubuntu1464:~/flexlm_11.14$
+toyo@ubuntu1464:~/flexlm_11.14$ sudo dpkg -i spirent-apt-flexlm-server_7.0.1.deb
+
+
+sudo apt-get install lsb
+sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
+sudo apt-get install gcc-multilib
+
+Follow the steps in this section only if you wish to install the license server in 
+Ubuntu 16.04 LTS environment.
+
+
+
+
+sudo chmod -R 777 /var/tmp
+
+sudo chmod -R 777 /etc/default
+
+■RunTime実行(64bit)
+
+  ■Linux(Ubuntu 16.4.0 64bit)
+sudo /home/toyo/iTestRT/iTestRT/itestrt --test file:/home/toyo/iTestRT/iTestRT/cnd/new_testcase.fftc --licenseProxy 172.22.137.132:5000 --licenseServer 172.22.137.132:27000
+
+sudo /home/toyo/iTestRT/iTestRT/itestrt --test file:/home/toyo/iTestRT/iTestRT/cnd/new_testcase.fftc --licenseProxy 172.22.137.132:5000 --licenseServer 172.22.137.132:27001
+
+  ■Windows 7 (64bit)
+itestrt --test file:/D:/Users/katono/iTest_7.1_workspace/iTestRT/my_project/test_cases/new_testcase.fftc --licenseProxy 172.22.137.132:5000 --licenseServer 172.22.137.132:27001
+
+
+
+D:/Users/katono/iTest_7.1_workspace/iTestRT/my_project/test_cases
+file:/c:/mypath, 
+
+
+
+
+
