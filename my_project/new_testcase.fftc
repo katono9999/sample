@@ -10,6 +10,13 @@
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                     <useFieldsInCommand>false</useFieldsInCommand>
                 </item>
+                <item guid="a255c7d1-08dd-4f09-830f-811fae354d79" action="eval">
+                    <command>
+                        <body>puts &quot;abcd&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
             </steps>
         </item>
     </procedures>
